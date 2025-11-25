@@ -12,9 +12,6 @@
 brew "argo"
 brew "argocd"
 
-# CRI-O
-brew "cri-o"
-
 # Cilium
 brew "cilium-cli"
 
@@ -200,9 +197,6 @@ brew "cnpg"
 # DevSpace
 brew "devspace"
 
-# Dex
-brew "dex"
-
 # K8sGPT
 brew "k8sgpt"
 
@@ -233,9 +227,6 @@ brew "mesheryctl"
 
 # Microcks
 brew "microcks-cli"
-
-# Pixie
-brew "px"
 
 # Porter
 brew "porter"
