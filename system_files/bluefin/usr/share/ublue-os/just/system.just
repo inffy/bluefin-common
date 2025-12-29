@@ -122,7 +122,11 @@ alias rollback-helper := rebase-helper
 # Rebase assistant
 [group('System')]
 rebase-helper:
-    @/usr/bin/ublue-rollback-helper
+    if grep -i centos "/etc/os-release" ; then
+        echo "The rebase helper is currently disabled for Bluefin LTS"
+        exit 1
+    fi
+    /usr/bin/ublue-rollback-helper
 
 # TPM2 auto-unlock toggle
 [group('System')]
