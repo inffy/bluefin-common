@@ -12,6 +12,7 @@ install-jetbrains-toolbox:
     brew tap ublue-os/homebrew-tap
     brew install --cask jetbrains-toolbox-linux
 
+
 # Install OpenTabletDriver, an open source, cross-platform, user-mode tablet driver
 [group('Apps')]
 install-opentabletdriver:
@@ -29,10 +30,12 @@ install-opentabletdriver:
         | wget -qi - -O - \
         | tar --strip-components=1 -xvzf - -C "${OTD_TMPDIR}"
 
-      sudo cp "${OTD_TMPDIR}/etc/udev/rules.d/70-opentabletdriver.rules" /etc/udev/rules.d/71-opentabletdriver.rules && \
+      # https://opentabletdriver.net/Wiki/Documentation/RequiredPermissions
+      sudo cp "${OTD_TMPDIR}/etc/udev/rules.d/70-opentabletdriver.rules" /etc/udev/rules.d/71-opentabletdriver.rules
+      echo -ne "blacklist hid_uclogic\nblacklist wacom\n" | sudo tee /etc/modprobe.d/blacklist-opentabletdriver.conf
       rm -rf "${OTD_TMPDIR}"
 
-      flatpak --system install -y flathub net.opentabletdriver.OpenTabletDriver
+      sudo flatpak --system install -y flathub net.opentabletdriver.OpenTabletDriver
 
       mkdir -p "$HOME/.config/systemd/user"
       curl -s "https://raw.githubusercontent.com/flathub/net.opentabletdriver.OpenTabletDriver/refs/heads/master/scripts/opentabletdriver.service" > "$HOME/.config/systemd/user/opentabletdriver.service"
@@ -41,7 +44,7 @@ install-opentabletdriver:
       systemctl enable --user --now opentabletdriver.service
     elif [ "${EXIT_CODE}" == 1 ] ; then
       echo "Uninstalling OpenTabletDriver..."
-      sudo rm /etc/udev/rules.d/71-opentabletdriver.rules && \
+      sudo rm -f /etc/modprobe.d/blacklist-opentabletdriver.rules /etc/udev/rules.d/71-opentabletdriver.rules
       flatpak --system remove -y flathub net.opentabletdriver.OpenTabletDriver
     fi
 
