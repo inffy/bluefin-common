@@ -147,10 +147,16 @@ There are no complex build systems, no package management, no multi-stage builds
 
 This repository follows the CNCF label pattern with `/` separators and color-coded groups.
 
-- When asked to make github labels consistent across bluefin use this set of labels:
-- Ensure that @projectbluefin/common @projectbluefin/distroless @ublue-os/bluefin @ublue-os/bluefin-lts all share this label structure
-- Ensure that the colors remain consistent
-- This file is the source of truth for labels in Bluefin
+- When asked to make github labels consistent across bluefin use this set of repositories. Do not touch any other repos:
+  - @projectbluefin/common
+  - @projectbluefin/distroless
+  - @ublue-os/bluefin
+  - @ublue-os/bluefin-lts 
+  - Ensure that the colors remain consistent
+
+This file is the source of truth for labels in Bluefin.
+
+NEVER touch the issues themselves, only rename the labels.
 
 ### Label Categories
 
