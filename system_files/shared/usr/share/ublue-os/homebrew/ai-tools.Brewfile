@@ -1,6 +1,7 @@
 tap "anomalyco/tap"
 tap "charmbracelet/tap"
 tap "ublue-os/tap"
+tap "ublue-os/experimental-tap"
 brew "aichat"
 brew "anomalyco/tap/opencode"
 brew "block-goose-cli"
