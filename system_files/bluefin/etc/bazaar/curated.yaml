@@ -205,7 +205,7 @@ rows:
             pl: "Przeglądarki"
           subtitle:
             en: "Use the web with your favorite browser"
-            pl: "Surfuj po sieci swoją ulubioną przeglądarka"
+            pl: "Surfuj po sieci swoją ulubioną przeglądarką"
           light-banner: file:///run/host/etc/bazaar/01-bluefin-day.jxl
           dark-banner: file:///run/host/etc/bazaar/01-bluefin-night.jxl
           banner-fit: cover
