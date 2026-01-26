@@ -1,6 +1,0 @@
-# Exclude GitHub Actions and scripts from container builds
-.github/
-scripts/
-*.md
-.git/
-.gitignore
